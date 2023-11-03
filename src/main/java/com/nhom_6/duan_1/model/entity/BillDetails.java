@@ -7,18 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Entity
-@Table(name="Token")
+@Table(name="HoaDonChiTiet")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Token extends BaseEntity  {
+public class BillDetails extends BaseEntity{
     @Column
-    private int token;
+    private int soLuongSP;
     @Column
-    private Date endAt;
-
+    private double giaSP;
 }

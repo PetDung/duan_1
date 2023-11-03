@@ -16,12 +16,12 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Address extends BaseEntity {
     @Column
-    private String province;
+    private String tinh;
     @Column
-    private String district;
+    private String huyen;
     @Column
-    private String wards;
+    private String phuongXa;
     @Column
-    private String addressDetail;
+    private String diaChiChiTien;
 
 }

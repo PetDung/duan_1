@@ -7,18 +7,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Entity
-@Table(name="Token")
+@Table(name="Custom")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Token extends BaseEntity  {
+public class Custom extends BaseEntity {
     @Column
-    private int token;
-    @Column
-    private Date endAt;
-
+    private String nameCustom;
 }
