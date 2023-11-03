@@ -1,13 +1,15 @@
 package com.nhom_6.duan_1.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table
@@ -20,7 +22,8 @@ public class Color extends BaseEntity  {
     @Column
     private String colorName;
 
-    @OneToOne(mappedBy = "color")
-    private ProductDetail productDetail;
+    @OneToMany(mappedBy="color")
+    @JsonBackReference
+    private List<ProductDetail> productDetails;
 
 }
