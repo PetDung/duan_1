@@ -20,6 +20,9 @@ public class Material extends BaseEntity {
     @Column
     private String tenChatVai;
 
+    @Column
+    private Boolean trangThai;
+
     @OneToMany(mappedBy="material")
     private List<Product> products;
 }

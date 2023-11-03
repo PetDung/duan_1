@@ -20,6 +20,9 @@ public class Thickness extends BaseEntity{
     @Column
     private int dinhLuongGSM;
 
+    @Column
+    private Boolean trangThai;
+
     @OneToMany(mappedBy="thickness")
     private List<Product> products;
 

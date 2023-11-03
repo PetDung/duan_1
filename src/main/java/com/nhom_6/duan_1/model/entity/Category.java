@@ -21,6 +21,9 @@ public class Category extends BaseEntity {
     @Column
     private String tenDanhMuc;
 
+    @Column
+    private Boolean trangThai;
+
     @ManyToMany(mappedBy = "categories")
     private List<Product> products;
 }

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.security.PrivateKey;
 import java.util.List;
 
 @Entity
@@ -16,6 +17,8 @@ import java.util.List;
 public class Custom extends BaseEntity {
     @Column
     private String nameCustom;
+    @Column
+    private Boolean trangThai;
 
     @OneToMany(mappedBy="custom")
     private List<Product> products;
