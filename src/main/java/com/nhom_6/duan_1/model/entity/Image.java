@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public class Image  extends BaseEntity{
     private User user;
 
     @OneToOne(mappedBy = "image")
+    @JsonBackReference
     private ProductDetail productDetail;
 
 
