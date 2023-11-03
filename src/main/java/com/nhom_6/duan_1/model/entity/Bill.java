@@ -10,15 +10,18 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table(name="Token")
+@Table(name="HoaDon")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Token extends BaseEntity  {
+public class Bill extends BaseEntity{
     @Column
-    private int token;
+    private Date ngayGiao;
     @Column
-    private Date endAt;
-
+    private double tongTienHang;
+    @Column
+    private double thanhTien;
+    @Column
+    private String trangThai;
 }

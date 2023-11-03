@@ -29,6 +29,12 @@ public class User extends BaseEntity {
 
     @Column
     private String address;
+    @Column
+    private String sdt;
+    @Column
+    private String taiKhoan;
+    @Column
+    private String matKhau;
 
     @ManyToMany
     @JoinTable(name = "user_role",
