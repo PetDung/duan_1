@@ -43,8 +43,14 @@ public class User extends BaseEntity {
     @JsonManagedReference
     private List<Role> roles;
 
+    @ManyToMany(mappedBy = "users")
+    private List<Voucher> vouchers;
+
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
+
+    @OneToMany(mappedBy = "user")
+    private List<Bill> bills;
 
 
 }

@@ -1,13 +1,12 @@
 package com.nhom_6.duan_1.model.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="HoaDon")
@@ -24,4 +23,12 @@ public class Bill extends BaseEntity{
     private double thanhTien;
     @Column
     private String trangThai;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
+    @OneToMany(mappedBy="bill")
+    private List<BillDetails> billDetails;
+
 }

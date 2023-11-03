@@ -16,4 +16,20 @@ public class ProductDetail extends BaseEntity {
     private int soLuong;
     @Column
     private String trangThai;
+
+    @ManyToOne
+    @JoinColumn(name="product_id")
+    private Product product;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="size_id")
+    private Size size;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="color_id")
+    private Color color;
+
+    @OneToOne
+    @JoinColumn(name="image_id")
+    private Image image;
 }
