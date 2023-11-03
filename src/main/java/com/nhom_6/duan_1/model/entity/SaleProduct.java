@@ -1,6 +1,7 @@
 package com.nhom_6.duan_1.model.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,4 +23,7 @@ public class SaleProduct extends BaseEntity {
     private String trangThai;
     @Column
     private Date ngayKetThuc;
+
+    @OneToOne(mappedBy = "saleProduct")
+    private Product product;
 }

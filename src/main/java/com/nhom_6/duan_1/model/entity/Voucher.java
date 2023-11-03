@@ -1,13 +1,13 @@
 package com.nhom_6.duan_1.model.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="Voucher")
@@ -22,4 +22,11 @@ public class Voucher extends BaseEntity{
     private Date endAt;
     @Column
     private String trangThai;
+
+    @ManyToMany
+    @JoinTable(name = "phieugiamgia_nguoidung",
+            joinColumns = @JoinColumn(name = "phieugiamgia_id"),
+            inverseJoinColumns = @JoinColumn(name = "nguoidung_id"))
+    @JsonManagedReference
+    private List<User> users;
 }

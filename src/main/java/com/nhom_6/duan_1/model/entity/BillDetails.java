@@ -1,7 +1,5 @@
 package com.nhom_6.duan_1.model.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +16,14 @@ public class BillDetails extends BaseEntity{
     private int soLuongSP;
     @Column
     private double giaSP;
+
+    @ManyToOne
+    @JoinColumn(name="bill_id")
+    private Bill bill;
+
+    @ManyToOne
+    @JoinColumn(name="product_id")
+    private Product product;
+
+
 }
