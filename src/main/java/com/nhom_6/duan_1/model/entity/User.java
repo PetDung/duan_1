@@ -36,6 +36,9 @@ public class User extends BaseEntity {
     @Column
     private String matKhau;
 
+    @Column
+    private Boolean trangThai;
+
     @ManyToMany
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
