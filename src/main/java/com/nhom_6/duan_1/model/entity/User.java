@@ -29,6 +29,12 @@ public class User extends BaseEntity {
 
     @Column
     private String address;
+    @Column
+    private String sdt;
+    @Column
+    private String taiKhoan;
+    @Column
+    private String matKhau;
 
     @ManyToMany
     @JoinTable(name = "user_role",
@@ -37,8 +43,14 @@ public class User extends BaseEntity {
     @JsonManagedReference
     private List<Role> roles;
 
+    @ManyToMany(mappedBy = "users")
+    private List<Voucher> vouchers;
+
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
+
+    @OneToMany(mappedBy = "user")
+    private List<Bill> bills;
 
 
 }

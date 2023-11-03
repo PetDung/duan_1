@@ -10,15 +10,20 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table(name="Token")
+@Table(name="GiaoCa")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Token extends BaseEntity  {
+public class ShiftAssignment extends BaseEntity {
     @Column
-    private int token;
+    private Date endAT;
     @Column
-    private Date endAt;
-
+    private String moTa;
+    @Column
+    private String trangThai;
+    @Column
+    private double soTienDauCa;
+    @Column
+    private double soTienCuoiCa;
 }
