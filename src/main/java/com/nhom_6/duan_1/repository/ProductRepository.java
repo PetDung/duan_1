@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product,Integer> {
+public interface ProductRepository extends JpaRepository<Product,Long> {
 
     @Query(" select p from Product p " +
             " inner join ProductDetail pd on pd.product = p" +
@@ -17,4 +17,5 @@ public interface ProductRepository extends JpaRepository<Product,Integer> {
     List<Product> getProductBySize(@Param("sizeName") String sizeName,
                                     @Param("colorName") String colorName
                                     );
+    List<Product> findAll();
 }
