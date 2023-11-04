@@ -59,4 +59,7 @@ public class Product extends BaseEntity {
     @JoinColumn(name ="sale_id")
     @JsonIgnore
     private SaleProduct saleProduct;
+
+    @ManyToMany(mappedBy = "favoriteProducts")
+    private List<ProductFavorite> favoritedByUsers;
 }

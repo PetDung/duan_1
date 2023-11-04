@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface ProductService {
     List<Product> getProductsBySize(String sizeName,String colorName);
+
+    List<Product> getAllProducts();
+    Product getProductById(Long id);
 }
