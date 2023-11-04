@@ -17,4 +17,17 @@ public class ProductSeviceImp implements ProductService {
     public List<Product> getProductsBySize(String sizeName,String colorName) {
         return productRepository.getProductBySize(sizeName,colorName);
     }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    @Override
+    public Product getProductById(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> {
+                    throw new RuntimeException("No found!");
+                });
+    }
 }
