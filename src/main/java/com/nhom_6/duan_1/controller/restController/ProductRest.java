@@ -17,14 +17,15 @@ public class ProductRest {
 
     @Autowired
     ProductService productService;
-    @GetMapping("/get-by-size")
+    @GetMapping("/product-details/get-by-size")
     public ResponseEntity<?> getBySize(@RequestParam("sizeName") String sizeName,
-                                       @RequestParam("colorName") String colorName
+                                       @RequestParam("id") Long id
                                        ){
         try {
-            return ResponseEntity.ok(productService.getProductsBySize(sizeName, colorName));
+            return ResponseEntity.ok(productService.getProductDetailBySize(id, sizeName));
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.toString());
         }
     }
+
 }

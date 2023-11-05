@@ -46,8 +46,6 @@ public class User extends BaseEntity {
     @JsonManagedReference
     private List<Role> roles;
 
-    @ManyToMany(mappedBy = "users")
-    private List<Voucher> vouchers;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
@@ -58,4 +56,6 @@ public class User extends BaseEntity {
     @ManyToMany(mappedBy = "favoritedByUsers")
     private List<ProductFavorite> favoriteProducts;
 
+    @OneToMany(mappedBy = "user")
+    private List<Voucher_User> voucherUsers;
 }

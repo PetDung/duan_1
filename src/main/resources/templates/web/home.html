@@ -115,41 +115,36 @@
                 <div th:each="item : ${productsList}" class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                            <!--                            <span class="label">New</span>-->
+                            <span id="date" th:data-date="${item.createdAt}"></span>
+                            <span style="display: none" class="label">New</span>
                             <ul class="product__hover">
                                 <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6 th:text="${item.tenSanPham}"></h6>
                             <a th:href="@{'/product/product-details?id=' + ${item.id}}" class="add-cart">Xem Sản Phẩm</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
                             <h5 th:text="${item.giaSanPham}"></h5>
-                            <div class="product__color__select">
-                                <label for="pc-1">
-                                    <input type="radio" id="pc-1">
-                                </label>
-                                <label class="active black" for="pc-2">
-                                    <input type="radio" id="pc-2">
-                                </label>
-                                <label class="grey" for="pc-3">
-                                    <input type="radio" id="pc-3">
-                                </label>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        let products = document.querySelectorAll(".product__item__pic");
+        products.forEach(item=>{
+            let dateString = item.querySelector("#date").getAttribute("data-date");
+            let date = new Date(dateString);
+            let currentDate = new Date()
+            let timeDiff = Math.abs(currentDate.getTime() - date.getTime());
+            let dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if(dayDiff <= 1){
+                let span = item.querySelector(".label");
+                span.style.display = "inline"
+            }
+        })
+    </script>
     <!-- Product Section End -->
 
     <!-- Categories Section Begin -->
