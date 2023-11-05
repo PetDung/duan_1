@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,8 +28,11 @@ public class User extends BaseEntity {
     @Column
     private Date dateOfBirth;
 
-    @Column
-    private String address;
+    @OneToOne
+    @JoinColumn(name ="address_id")
+    @JsonIgnore
+    private Address address;
+
     @Column
     private String sdt;
     @Column
