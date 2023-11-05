@@ -2,6 +2,7 @@ package com.nhom_6.duan_1.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,5 +24,6 @@ public class Address extends BaseEntity {
     private String phuongXa;
     @Column
     private String diaChiChiTien;
-
+    @OneToOne(mappedBy = "address")
+    private User user;
 }
