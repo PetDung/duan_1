@@ -25,6 +25,7 @@ public class Home {
             e.printStackTrace();
         }
         model.addAttribute("page","home");
+        model.addAttribute("title","Levents");
         return "layout/index";
     }
 }
