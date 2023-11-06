@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Voucher_User extends BaseEntity {
 
     @Column
-    private boolean isUsed = false;
+    private boolean trangThai;
 
     @ManyToOne
     @JoinColumn(name = "nguoidung_id")
@@ -16,5 +16,9 @@ public class Voucher_User extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "phieugiamgia_id")
     private Voucher voucher;
+
+    @OneToOne
+    @JoinColumn(name = "bill_id")
+    private Bill bill;
 
 }
