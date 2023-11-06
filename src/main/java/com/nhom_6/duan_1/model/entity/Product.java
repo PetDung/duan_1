@@ -60,6 +60,7 @@ public class Product extends BaseEntity {
     @JsonIgnore
     private SaleProduct saleProduct;
 
-    @ManyToMany(mappedBy = "favoriteProducts")
+    @OneToMany(mappedBy = "product")
     private List<ProductFavorite> favoritedByUsers;
+
 }

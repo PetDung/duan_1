@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface SizeResponsitory extends JpaRepository<Size,Long> {
 
-    @Query( " select s from Size s where s.productDetails. =:id")
-    List<Size> findAllByProductDetailsId(Long id);
+//    @Query( " select s from Size s where s.productDetails. =:id")
+//    List<Size> findAllByProductDetailsId(Long id);
 }

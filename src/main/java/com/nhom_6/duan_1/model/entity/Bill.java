@@ -31,4 +31,6 @@ public class Bill extends BaseEntity{
     @OneToMany(mappedBy="bill")
     private List<BillDetails> billDetails;
 
+    @OneToOne(mappedBy = "bill")
+    private Voucher_User voucherUser;
 }
