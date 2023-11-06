@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface SizeResponsitory extends JpaRepository<Size,Long> {
 
-    @Query( " select s from Size s where s.productDetails. =:id")
+    @Query(" SELECT distinct s FROM Size s" +
+            " JOIN s.productDetails pd on pd.size.id = s.id " +
+            " where pd.product.id = :id ")
     List<Size> findAllByProductDetailsId(Long id);
 }
