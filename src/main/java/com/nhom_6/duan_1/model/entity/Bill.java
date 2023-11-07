@@ -35,9 +35,6 @@ public class Bill extends BaseEntity{
     private VoucherUserBill voucherUserBill;
 
     @OneToOne(mappedBy = "bill")
-    private UserAddressBill userAddressBill;
-
-    @OneToOne(mappedBy = "bill")
     private ReturnBill returnBill;
 
     @OneToOne(mappedBy = "bill")

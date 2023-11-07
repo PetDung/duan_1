@@ -60,8 +60,6 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user")
     private List<VoucherUserBill> voucherUsers;
 
-    @OneToMany(mappedBy = "user")
-    private List<UserAddressBill> userAddressBills;
 
     @ManyToOne
     private ShiftAssignment shiftAssignment;
