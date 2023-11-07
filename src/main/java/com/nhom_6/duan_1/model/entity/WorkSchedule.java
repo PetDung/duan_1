@@ -1,6 +1,7 @@
 package com.nhom_6.duan_1.model.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table(name="DanhSachCaLam")
+@Table(name="WorkSchedule")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,4 +25,7 @@ public class WorkSchedule extends BaseEntity{
     private String moTa;
     @Column
     private String trangThai;
+
+    @ManyToOne
+    private ShiftAssignment shiftAssignment;
 }

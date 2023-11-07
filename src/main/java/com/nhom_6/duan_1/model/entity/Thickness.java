@@ -1,8 +1,5 @@
 package com.nhom_6.duan_1.model.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +20,7 @@ public class Thickness extends BaseEntity{
     @Column
     private Boolean trangThai;
 
-    @OneToMany(mappedBy="thickness")
-    private List<Product> products;
+    @OneToOne(mappedBy="thickness")
+    private Product product;
 
 }

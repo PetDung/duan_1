@@ -32,16 +32,13 @@ public class User extends BaseEntity {
     @JoinColumn(name ="address_id")
     @JsonIgnore
     private Address address;
-  
-    @Column
-    private String sdt;
-    @Column
-    private String taiKhoan;
-    @Column
-    private String matKhau;
 
     @Column
-    private Boolean trangThai;
+    private String numberPhone;
+    @Column
+    private String account;
+    @Column
+    private String password;
 
     @ManyToMany
     @JoinTable(name = "user_role",
@@ -56,10 +53,19 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user")
     private List<Bill> bills;
 
-    @OneToMany(mappedBy = "user")
-    private List<ProductFavorite> favoriteProducts;
+    @OneToOne(mappedBy = "user")
+    private ProductFavorite favoriteProducts;
 
 
     @OneToMany(mappedBy = "user")
-    private List<Voucher_User> voucherUsers;
+    private List<VoucherUserBill> voucherUsers;
+
+    @OneToMany(mappedBy = "user")
+    private List<UserAddressBill> userAddressBills;
+
+    @ManyToOne
+    private ShiftAssignment shiftAssignment;
+
+    @OneToOne
+    private Token token;
 }

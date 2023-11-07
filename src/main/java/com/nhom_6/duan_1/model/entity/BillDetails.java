@@ -6,24 +6,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="HoaDonChiTiet")
+@Table(name="BillDetail")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class BillDetails extends BaseEntity{
     @Column
-    private int soLuongSP;
+    private String quantityUrchased;
     @Column
-    private double giaSP;
+    private double priceAtTheTimeOfPurchase;
 
     @ManyToOne
     @JoinColumn(name="bill_id")
     private Bill bill;
 
     @ManyToOne
-    @JoinColumn(name="product_id")
-    private Product product;
-
+    @JoinColumn(name="productDetail_id")
+    private ProductDetail productDetail;
 
 }
