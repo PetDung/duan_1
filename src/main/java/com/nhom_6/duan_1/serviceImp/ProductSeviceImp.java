@@ -20,7 +20,8 @@ public class ProductSeviceImp implements ProductService {
 
     @Override
     public List<Product> getProductsBySize(String sizeName,String colorName) {
-        return productRepository.getProductBySize(sizeName,colorName);
+//        return productRepository.getProductBySize(sizeName,colorName);
+        return null;
     }
 
     @Override

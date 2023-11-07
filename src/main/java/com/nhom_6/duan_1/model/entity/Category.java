@@ -12,17 +12,17 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name="DanhMuc")
+@Table(name="Category")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Category extends BaseEntity {
     @Column
-    private String tenDanhMuc;
+    private String nameCategory;
 
     @Column
-    private Boolean trangThai;
+    private Boolean status;
 
     @ManyToMany(mappedBy = "categories")
     private List<Product> products;

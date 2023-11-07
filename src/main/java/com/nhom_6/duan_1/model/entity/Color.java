@@ -20,10 +20,9 @@ import java.util.List;
 public class Color extends BaseEntity  {
 
     @Column
-    private String colorName;
+    private String nameColor;
 
-    @OneToMany(mappedBy="color")
-    @JsonBackReference
-    private List<ProductDetail> productDetails;
+    @ManyToOne
+    private ProductDetail productDetail;
 
 }

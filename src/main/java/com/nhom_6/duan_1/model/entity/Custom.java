@@ -18,9 +18,9 @@ public class Custom extends BaseEntity {
     @Column
     private String nameCustom;
     @Column
-    private Boolean trangThai;
+    private Boolean status;
 
-    @OneToMany(mappedBy="custom")
-    private List<Product> products;
+    @OneToOne(mappedBy = "custom", cascade = CascadeType.ALL)
+    private Product product;
 
 }

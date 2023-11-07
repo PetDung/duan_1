@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,17 +12,19 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="SanPhamYeuThich")
+@Table(name="ProductFavorite")
 public class ProductFavorite extends BaseEntity{
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "san_pham_id")
+    @OneToOne
+    @JoinColumn(name = "product_id")
+    @JsonBackReference
     private Product product;
 
     @Column
-    private Boolean trangThai;
+    private Boolean status;
 }

@@ -11,18 +11,20 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table(name="SanPhamSale")
+@Table(name="SaleProduct")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class SaleProduct extends BaseEntity {
     @Column
-    private double giamGia;
+    private double sale;
     @Column
-    private String trangThai;
+    private String status;
     @Column
-    private Date ngayKetThuc;
+    private Date createAt;
+    @Column
+    private Date endAt;
 
     @OneToOne(mappedBy = "saleProduct")
     private Product product;
