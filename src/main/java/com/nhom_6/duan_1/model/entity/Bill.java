@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="HoaDon")
+@Table(name="Bill")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,4 +31,6 @@ public class Bill extends BaseEntity{
     @OneToMany(mappedBy="bill")
     private List<BillDetails> billDetails;
 
+    @OneToOne(mappedBy = "bill")
+    private Voucher_User voucherUser;
 }

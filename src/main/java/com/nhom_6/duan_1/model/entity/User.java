@@ -32,7 +32,7 @@ public class User extends BaseEntity {
     @JoinColumn(name ="address_id")
     @JsonIgnore
     private Address address;
-
+  
     @Column
     private String sdt;
     @Column
@@ -50,15 +50,15 @@ public class User extends BaseEntity {
     @JsonManagedReference
     private List<Role> roles;
 
-
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
 
     @OneToMany(mappedBy = "user")
     private List<Bill> bills;
 
-    @ManyToMany(mappedBy = "favoritedByUsers")
+    @OneToMany(mappedBy = "user")
     private List<ProductFavorite> favoriteProducts;
+
 
     @OneToMany(mappedBy = "user")
     private List<Voucher_User> voucherUsers;
