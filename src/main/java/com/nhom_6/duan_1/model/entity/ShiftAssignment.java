@@ -31,13 +31,12 @@ public class ShiftAssignment extends BaseEntity {
     @Column
     private double finalAmount;
 
-    @OneToMany
-    @JoinColumn(name="workSchedule_id")
-    @JsonManagedReference
-    private List<WorkSchedule> workSchedules;
+    @ManyToOne
+    @JoinColumn(name = "workSchedules_id")
+    private WorkSchedule workSchedules;
 
-    @OneToMany
-    @JoinColumn(name="user_id")
-    @JsonManagedReference
-    private List<User> users;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 }

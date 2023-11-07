@@ -13,19 +13,4 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class Home {
-
-    @Autowired
-    private ProductService productService;
-    @GetMapping("")
-    public String index(Model model) {
-        try {
-            List<Product> productsList = productService.getAllProducts();
-            model.addAttribute("productsList", productsList);
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        model.addAttribute("page","home");
-        model.addAttribute("title","Levents");
-        return "layout/index";
-    }
 }

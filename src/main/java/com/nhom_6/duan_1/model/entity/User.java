@@ -47,17 +47,17 @@ public class User extends BaseEntity {
     @JsonManagedReference
     private List<Bill> bills;
 
+    @OneToOne
+    private Address address;
+
     @OneToOne(mappedBy = "user")
     private ProductFavorite favoriteProducts;
 
+    @ManyToMany(mappedBy = "users")
+    private List<Voucher> vouchers;
 
     @OneToMany(mappedBy = "user")
-    @JsonManagedReference
-    private List<VoucherUserBill> voucherUsers;
-
-    @ManyToOne
-    @JsonBackReference
-    private ShiftAssignment shiftAssignment;
+    private List<ShiftAssignment> shiftAssignment;
 
     @OneToOne
     private Token token;

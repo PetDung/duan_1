@@ -38,23 +38,26 @@ public class Product extends BaseEntity {
     @JsonManagedReference
     private List<Category> categories;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="custome_id")
     private Custom custom;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "material_id")
     private Material material;
 
-    @OneToOne
-    @JoinColumn(name ="thickness_id")
+    @ManyToOne
+    @JoinColumn(name = "thickness_id")
     private Thickness thickness;
 
     @OneToOne
     @JoinColumn(name ="sale_id")
     private SaleProduct saleProduct;
 
-    @OneToOne(mappedBy = "product")
-    private ProductFavorite productFavorite;
+    @ManyToMany
+    @JoinTable( name = "product_productFovorite",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "productFavorite_id"))
+    private List<ProductFavorite> productFavorites;
 
 }

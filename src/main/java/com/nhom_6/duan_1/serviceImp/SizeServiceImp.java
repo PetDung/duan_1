@@ -11,10 +11,4 @@ import java.util.List;
 @Service
 public class SizeServiceImp implements SizeService {
 
-    @Autowired
-    SizeResponsitory sizeResponsitory;
-    @Override
-    public List<Size> getSizeByProductId(Long id) {
-        return sizeResponsitory.findAllByProductDetailsId(id);
-    }
 }

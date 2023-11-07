@@ -16,7 +16,7 @@ public class BillDetails extends BaseEntity{
     @Column
     private String quantityUrchased;
     @Column
-    private double priceAtTheTimeOfPurchase;
+    private double priceNow;
 
     @ManyToOne
     @JoinColumn(name="bill_id")

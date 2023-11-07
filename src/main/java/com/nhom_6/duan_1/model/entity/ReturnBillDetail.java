@@ -28,8 +28,7 @@ public class ReturnBillDetail extends BaseEntity {
     @JsonBackReference
     private ReturnBill returnBill;
 
-    @OneToMany
-    @JoinColumn(name="productDetail_id")
-    @JsonManagedReference
-    private List<ProductDetail> productDetails;
+    @ManyToOne
+    @JoinColumn(name="product_detail_id")
+    private ProductDetail productDetail;
 }

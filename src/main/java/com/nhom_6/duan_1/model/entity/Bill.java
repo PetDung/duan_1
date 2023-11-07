@@ -35,12 +35,16 @@ public class Bill extends BaseEntity{
     @JsonManagedReference
     private List<BillDetails> billDetails;
 
-    @OneToOne(mappedBy = "bill")
-    private VoucherUserBill voucherUserBill;
+    @ManyToOne
+    @JoinColumn(name="voucher_id")
+    private Voucher voucher;
 
     @OneToOne(mappedBy = "bill")
     private ReturnBill returnBill;
 
     @OneToOne(mappedBy = "bill")
     private ExchangeBill exchangeBill;
+
+    @OneToOne
+    private Address address;
 }
