@@ -8,19 +8,19 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name="DoDay")
+@Table(name="Thickness")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Thickness extends BaseEntity{
     @Column
-    private int dinhLuongGSM;
+    private int GSM;
 
     @Column
-    private Boolean trangThai;
+    private Boolean status;
 
-    @OneToOne(mappedBy="thickness")
+    @OneToOne
     private Product product;
 
 }

@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -21,18 +22,10 @@ public class User extends BaseEntity {
 
     @Column
     private String fullName;
-
     @Column
     private String email;
-
     @Column
     private Date dateOfBirth;
-
-    @OneToOne
-    @JoinColumn(name ="address_id")
-    @JsonIgnore
-    private Address address;
-
     @Column
     private String numberPhone;
     @Column
@@ -51,6 +44,7 @@ public class User extends BaseEntity {
     private Image image;
 
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private List<Bill> bills;
 
     @OneToOne(mappedBy = "user")
@@ -58,10 +52,11 @@ public class User extends BaseEntity {
 
 
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private List<VoucherUserBill> voucherUsers;
 
-
     @ManyToOne
+    @JsonBackReference
     private ShiftAssignment shiftAssignment;
 
     @OneToOne

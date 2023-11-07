@@ -28,7 +28,6 @@ public class Image  extends BaseEntity{
     private User user;
 
     @OneToOne(mappedBy = "image")
-    @JsonBackReference
     private ProductDetail productDetail;
 
 

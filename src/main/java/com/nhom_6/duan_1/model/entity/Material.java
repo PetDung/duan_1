@@ -20,6 +20,6 @@ public class Material extends BaseEntity {
     @Column
     private Boolean status;
 
-    @OneToOne
+    @OneToOne(mappedBy = "material")
     private Product product;
 }
