@@ -17,12 +17,10 @@ public class ProductFavorite extends BaseEntity{
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    @JsonBackReference
     private User user;
 
     @OneToOne
     @JoinColumn(name = "product_id")
-    @JsonBackReference
     private Product product;
 
     @Column

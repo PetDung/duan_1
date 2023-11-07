@@ -1,4 +1,5 @@
 package com.nhom_6.duan_1.model.entity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,5 +26,6 @@ public class Voucher extends BaseEntity{
     private String status;
 
     @OneToMany(mappedBy = "voucher")
+    @JsonManagedReference
     private List<VoucherUserBill> voucherUsers;
 }

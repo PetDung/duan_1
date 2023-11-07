@@ -1,4 +1,5 @@
 package com.nhom_6.duan_1.model.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,10 +20,12 @@ public class BillDetails extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name="bill_id")
+    @JsonBackReference
     private Bill bill;
 
     @ManyToOne
     @JoinColumn(name="productDetail_id")
+    @JsonBackReference
     private ProductDetail productDetail;
 
 }

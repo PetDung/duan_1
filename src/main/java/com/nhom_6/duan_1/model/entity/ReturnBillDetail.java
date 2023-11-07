@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +30,6 @@ public class ReturnBillDetail extends BaseEntity {
 
     @OneToMany
     @JoinColumn(name="productDetail_id")
-    @JsonBackReference
+    @JsonManagedReference
     private List<ProductDetail> productDetails;
 }

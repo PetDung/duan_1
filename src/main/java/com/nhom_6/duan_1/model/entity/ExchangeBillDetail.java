@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,5 +21,6 @@ public class ExchangeBillDetail extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="exChangeBill_id")
+    @JsonBackReference
     private ExchangeBill exchangeBill;
 }

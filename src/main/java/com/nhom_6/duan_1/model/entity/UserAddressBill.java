@@ -17,7 +17,6 @@ public class UserAddressBill extends BaseEntity{
 
     @OneToOne
     @JoinColumn(name="address_id")
-    @JsonBackReference
     private Address address;
 
     @ManyToOne
@@ -27,7 +26,6 @@ public class UserAddressBill extends BaseEntity{
 
     @OneToOne
     @JoinColumn(name="bill_id")
-    @JsonBackReference
     private Bill bill;
 
     @Column

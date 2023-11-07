@@ -1,6 +1,7 @@
 package com.nhom_6.duan_1.model.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,10 +30,12 @@ public class ProductDetail extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="size_id")
+    @JsonBackReference
     private Size size;
 
-    @OneToMany(mappedBy = "productDetail")
-    @JsonBackReference
+    @OneToMany
+    @JoinColumn(name = "color_id")
+    @JsonManagedReference
     private List<Color> colors;
 
 
@@ -41,8 +44,10 @@ public class ProductDetail extends BaseEntity {
     private Image image;
 
     @OneToMany(mappedBy = "productDetail")
+    @JsonManagedReference
     private List<BillDetails> billDetails;
 
     @ManyToOne
+    @JsonBackReference
     private ReturnBillDetail returnBillDetail;
 }

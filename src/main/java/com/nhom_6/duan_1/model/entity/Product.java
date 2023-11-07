@@ -40,22 +40,18 @@ public class Product extends BaseEntity {
 
     @OneToOne
     @JoinColumn(name="custome_id")
-    @JsonBackReference
     private Custom custom;
 
     @OneToOne
     @JoinColumn(name = "material_id")
-    @JsonBackReference
     private Material material;
 
     @OneToOne
     @JoinColumn(name ="thickness_id")
-    @JsonIgnore
     private Thickness thickness;
 
     @OneToOne
     @JoinColumn(name ="sale_id")
-    @JsonIgnore
     private SaleProduct saleProduct;
 
     @OneToOne(mappedBy = "product")

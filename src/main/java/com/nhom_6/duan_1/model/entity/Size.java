@@ -21,6 +21,6 @@ public class Size extends BaseEntity {
     private String nameSize;
 
     @OneToMany(mappedBy="size")
-    @JsonBackReference
+    @JsonManagedReference
     private List<ProductDetail> productDetails;
 }
