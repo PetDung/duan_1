@@ -32,7 +32,8 @@ public class User extends BaseEntity {
     private String account;
     @Column
     private String password;
-
+    @Column
+    private String status;
     @ManyToMany
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),

@@ -23,4 +23,8 @@ public class ExchangeBillDetail extends BaseEntity {
     @JoinColumn(name="exChangeBill_id")
     @JsonBackReference
     private ExchangeBill exchangeBill;
+
+    @ManyToOne
+    @JoinColumn(name = "productDetail_id")
+    private ProductDetail productDetail;
 }

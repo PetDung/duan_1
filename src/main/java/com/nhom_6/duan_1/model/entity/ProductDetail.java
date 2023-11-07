@@ -43,4 +43,7 @@ public class ProductDetail extends BaseEntity {
     @OneToMany(mappedBy = "productDetail")
     private List<ReturnBillDetail> returnBillDetails;
 
+    @OneToMany(mappedBy = "productDetail")
+    private List<ExchangeBillDetail> exchangeBillDetails;
+
 }
