@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -19,13 +20,13 @@ public class WorkSchedule extends BaseEntity{
     @Column
     private String nameWorkSchedule;
     @Column
-    private Date createAt;
+    private Time startAt;
     @Column
-    private Date endAt;
+    private Time endAt;
     @Column
     private String description;
     @Column
-    private String status;
+    private boolean status;
 
     @OneToMany(mappedBy = "workSchedules")
     private List<ShiftAssignment> shiftAssignment;
