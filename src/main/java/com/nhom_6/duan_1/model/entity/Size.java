@@ -20,7 +20,6 @@ public class Size extends BaseEntity {
     @Column
     private String nameSize;
 
-    @OneToMany(mappedBy="size")
-    @JsonManagedReference
-    private List<ProductDetail> productDetails;
+    @OneToMany(mappedBy = "size")
+    private List<ProductDetail> productDetail;
 }

@@ -25,7 +25,12 @@ public class Voucher extends BaseEntity{
     @Column
     private String status;
 
-    @OneToMany(mappedBy = "voucher")
-    @JsonManagedReference
-    private List<VoucherUserBill> voucherUsers;
+    @ManyToMany
+    @JoinTable(name = "user_voucher",
+              joinColumns = @JoinColumn(name = "voucher_id"),
+    inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> users;
+
+    @OneToMany(mappedBy ="voucher")
+    private List<Bill> bills;
 }

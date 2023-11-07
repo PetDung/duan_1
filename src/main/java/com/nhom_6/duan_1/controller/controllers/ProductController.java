@@ -12,19 +12,4 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-
-    @Autowired
-    ProductService productService;
-    @GetMapping("/product-details")
-    public String getProductDetails(Model model, @RequestParam("id") Long id) {
-        Product product = new Product();
-        try {
-            product = productService.getProductById(id);
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        model.addAttribute("product",product);
-        model.addAttribute("page","product-details");
-        return "layout/index";
-    }
 }

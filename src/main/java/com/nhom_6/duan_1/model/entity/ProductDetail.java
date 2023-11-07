@@ -30,24 +30,17 @@ public class ProductDetail extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="size_id")
-    @JsonBackReference
     private Size size;
 
-    @OneToMany
-    @JoinColumn(name = "color_id")
-    @JsonManagedReference
-    private List<Color> colors;
-
-
-    @OneToOne
-    @JoinColumn(name="image_id")
-    private Image image;
+    @ManyToOne
+    @JoinColumn(name="color_id")
+    private Color color;
 
     @OneToMany(mappedBy = "productDetail")
     @JsonManagedReference
     private List<BillDetails> billDetails;
 
-    @ManyToOne
-    @JsonBackReference
-    private ReturnBillDetail returnBillDetail;
+    @OneToMany(mappedBy = "productDetail")
+    private List<ReturnBillDetail> returnBillDetails;
+
 }

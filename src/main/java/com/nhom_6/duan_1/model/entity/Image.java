@@ -27,8 +27,6 @@ public class Image  extends BaseEntity{
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(mappedBy = "image")
-    private ProductDetail productDetail;
 
 
 }

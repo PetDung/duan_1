@@ -16,29 +16,4 @@ import java.util.List;
 @RequestMapping("/admin/product")
 public class ProductRest {
 
-    @Autowired
-    ProductService productService;
-
-    @Autowired
-    SizeService sizeService;
-    @GetMapping("/product-details/get-by-size")
-    public ResponseEntity<?> getBySize(@RequestParam("sizeName") String sizeName,
-                                       @RequestParam("id") Long id
-                                       ){
-        try {
-            return ResponseEntity.ok(productService.getProductDetailBySize(id, sizeName));
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(e.toString());
-        }
-    }
-
-    @GetMapping("/product-details/get-size-by-productId")
-    public ResponseEntity<?> getSize(@RequestParam("id") Long id){
-        try {
-            return ResponseEntity.ok(sizeService.getSizeByProductId(id));
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(e.toString());
-        }
-    }
-
 }

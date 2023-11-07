@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,9 +21,8 @@ public class ProductFavorite extends BaseEntity{
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @ManyToMany(mappedBy="productFavorites")
+    private List<Product> product;
 
     @Column
     private Boolean status;

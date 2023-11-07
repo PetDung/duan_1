@@ -20,7 +20,7 @@ public class Custom extends BaseEntity {
     @Column
     private Boolean status;
 
-    @OneToOne(mappedBy = "custom", cascade = CascadeType.ALL)
-    private Product product;
+    @OneToMany(mappedBy = "custom", cascade = CascadeType.ALL)
+    private List<Product> products;
 
 }

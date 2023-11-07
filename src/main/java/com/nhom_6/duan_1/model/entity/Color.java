@@ -22,8 +22,7 @@ public class Color extends BaseEntity  {
     @Column
     private String nameColor;
 
-    @ManyToOne
-    @JsonBackReference
-    private ProductDetail productDetail;
+    @OneToMany(mappedBy ="color")
+    private List<ProductDetail> productDetails;
 
 }

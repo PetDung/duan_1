@@ -27,6 +27,9 @@ public class Address extends BaseEntity {
     private String addressDetail;
 
     @OneToOne(mappedBy = "address")
-    private UserAddressBill userAddressBill;
+    private User user;
+
+    @OneToOne(mappedBy = "address")
+    private Bill bill;
 
 }

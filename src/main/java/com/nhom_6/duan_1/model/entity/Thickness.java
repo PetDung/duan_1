@@ -20,7 +20,7 @@ public class Thickness extends BaseEntity{
     @Column
     private Boolean status;
 
-    @OneToOne
-    private Product product;
+    @OneToMany(mappedBy = "thickness")
+    private List<Product> products;
 
 }
