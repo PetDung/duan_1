@@ -1,4 +1,5 @@
 package com.nhom_6.duan_1.model.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -10,47 +11,44 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name="SanPham")
+@Table(name="Product")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product extends BaseEntity {
     @Column
-    private String tenSanPham;
+    private String nameProduct;
     @Column
-    private double giaSanPham;
+    private double productPrice;
     @Column
-    private String moTa;
+    private String description;
     @Column
-    private String trangThai;
+    private String status;
 
-    @OneToMany(mappedBy="product")
-    @JsonIgnore
-    private List<BillDetails> billDetails;
 
     @OneToMany(mappedBy="product")
     @JsonManagedReference
     private List<ProductDetail> productDetails;
 
     @ManyToMany
-    @JoinTable(name = "danhmuc_sanpham",
+    @JoinTable(name = "product_category",
             joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "danhmuc_id"))
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     @JsonManagedReference
     private List<Category> categories;
 
-    @ManyToOne
-    @JoinColumn(name ="custom_id")
-    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name="custome_id")
+    @JsonBackReference
     private Custom custom;
 
-    @ManyToOne
-    @JoinColumn(name ="material_id")
-    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "material_id")
+    @JsonBackReference
     private Material material;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name ="thickness_id")
     @JsonIgnore
     private Thickness thickness;
@@ -60,7 +58,7 @@ public class Product extends BaseEntity {
     @JsonIgnore
     private SaleProduct saleProduct;
 
-    @OneToMany(mappedBy = "product")
-    private List<ProductFavorite> favoritedByUsers;
+    @OneToOne(mappedBy = "product")
+    private ProductFavorite productFavorite;
 
 }

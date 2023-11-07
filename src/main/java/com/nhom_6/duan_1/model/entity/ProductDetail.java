@@ -7,17 +7,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
-@Table(name="SanPhamChiTiet")
+@Table(name="ProductDetail")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDetail extends BaseEntity {
     @Column
-    private int soLuong;
+    private int quantity;
     @Column
-    private String trangThai;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name="product_id")
@@ -29,12 +31,18 @@ public class ProductDetail extends BaseEntity {
     @JoinColumn(name="size_id")
     private Size size;
 
-    @ManyToOne
-    @JoinColumn(name="color_id")
-    private Color color;
+    @OneToMany(mappedBy = "productDetail")
+    @JsonBackReference
+    private List<Color> colors;
 
 
     @OneToOne
     @JoinColumn(name="image_id")
     private Image image;
+
+    @OneToMany(mappedBy = "productDetail")
+    private List<BillDetails> billDetails;
+
+    @ManyToOne
+    private ReturnBillDetail returnBillDetail;
 }

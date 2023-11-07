@@ -1,4 +1,5 @@
 package com.nhom_6.duan_1.model.entity;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,26 +7,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
-@Table(name="ReturnBill")
+@Table(name = "UserAddressBill")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReturnBill extends BaseEntity{
-    @Column
-    private double totalCost;
-    @Column
-    private String reasonDescription;
+public class UserAddressBill extends BaseEntity{
+
+    @OneToOne
+    @JoinColumn(name="address_id")
+    @JsonBackReference
+    private Address address;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
+    private User user;
 
     @OneToOne
     @JoinColumn(name="bill_id")
     @JsonBackReference
     private Bill bill;
 
-    @OneToMany(mappedBy = "returnBill")
-    private List<ReturnBillDetail> returnBillDetails;
-
+    @Column
+    private String trangThai;
 }

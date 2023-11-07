@@ -16,13 +16,13 @@ import java.util.List;
 @AllArgsConstructor
 public class Bill extends BaseEntity{
     @Column
-    private Date ngayGiao;
+    private Date deliveryDate;
     @Column
-    private double tongTienHang;
+    private Double totalCost;
     @Column
-    private double thanhTien;
+    private Double intoMoney;
     @Column
-    private String trangThai;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name="user_id")
@@ -32,5 +32,14 @@ public class Bill extends BaseEntity{
     private List<BillDetails> billDetails;
 
     @OneToOne(mappedBy = "bill")
-    private Voucher_User voucherUser;
+    private VoucherUserBill voucherUserBill;
+
+    @OneToOne(mappedBy = "bill")
+    private UserAddressBill userAddressBill;
+
+    @OneToOne(mappedBy = "bill")
+    private ReturnBill returnBill;
+
+    @OneToOne(mappedBy = "bill")
+    private ExchangeBill exchangeBill;
 }

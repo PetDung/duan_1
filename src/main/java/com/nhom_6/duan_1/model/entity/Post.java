@@ -16,9 +16,9 @@ public class Post extends BaseEntity{
     @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] image;
 
-    @Column(name = "moTa")
-    private String moTa;
+    @Column
+    private String moTdescriptiona;
 
-    @Column(name = "trangThai")
-    private String trangThai;
+    @Column
+    private String status;
 }

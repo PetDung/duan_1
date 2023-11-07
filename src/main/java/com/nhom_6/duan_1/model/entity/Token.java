@@ -1,7 +1,5 @@
 package com.nhom_6.duan_1.model.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,8 +15,13 @@ import java.util.Date;
 @AllArgsConstructor
 public class Token extends BaseEntity  {
     @Column
-    private int token;
+    private int OTPToken;
+    @Column
+    private int createAt;
     @Column
     private Date endAt;
 
+    @OneToOne(mappedBy = "token")
+    @JoinColumn(name="user_id")
+    private User user;
 }

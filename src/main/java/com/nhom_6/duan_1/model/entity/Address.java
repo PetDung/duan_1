@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
@@ -17,13 +18,15 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Address extends BaseEntity {
     @Column
-    private String tinh;
+    private String province;
     @Column
-    private String huyen;
+    private String district;
     @Column
-    private String phuongXa;
+    private String commune;
     @Column
-    private String diaChiChiTien;
+    private String addressDetail;
+
     @OneToOne(mappedBy = "address")
-    private User user;
+    private UserAddressBill userAddressBill;
+
 }

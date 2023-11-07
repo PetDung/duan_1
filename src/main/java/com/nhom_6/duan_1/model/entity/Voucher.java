@@ -1,5 +1,4 @@
 package com.nhom_6.duan_1.model.entity;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,12 +16,14 @@ import java.util.List;
 @AllArgsConstructor
 public class Voucher extends BaseEntity{
     @Column
-    private double giamGia;
+    private double saleOf;
+    @Column
+    private Date createAt;
     @Column
     private Date endAt;
     @Column
-    private String trangThai;
+    private String status;
 
     @OneToMany(mappedBy = "voucher")
-    private List<Voucher_User> voucherUsers;
+    private List<VoucherUserBill> voucherUsers;
 }
