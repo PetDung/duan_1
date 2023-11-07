@@ -23,6 +23,7 @@ public class Color extends BaseEntity  {
     private String nameColor;
 
     @ManyToOne
+    @JsonBackReference
     private ProductDetail productDetail;
 
 }

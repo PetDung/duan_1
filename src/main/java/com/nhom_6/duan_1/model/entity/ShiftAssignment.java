@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,11 +33,11 @@ public class ShiftAssignment extends BaseEntity {
 
     @OneToMany
     @JoinColumn(name="workSchedule_id")
-    @JsonBackReference
+    @JsonManagedReference
     private List<WorkSchedule> workSchedules;
 
     @OneToMany
     @JoinColumn(name="user_id")
-    @JsonBackReference
+    @JsonManagedReference
     private List<User> users;
 }

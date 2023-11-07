@@ -16,11 +16,11 @@ public class VoucherUserBill extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "voucher_id")
+    @JsonBackReference
     private Voucher voucher;
 
     @OneToOne
     @JoinColumn(name = "bill_id")
-    @JsonBackReference
     private Bill bill;
 
 }

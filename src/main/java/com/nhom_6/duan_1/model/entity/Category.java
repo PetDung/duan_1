@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
@@ -25,5 +26,6 @@ public class Category extends BaseEntity {
     private Boolean status;
 
     @ManyToMany(mappedBy = "categories")
+    @JsonBackReference
     private List<Product> products;
 }

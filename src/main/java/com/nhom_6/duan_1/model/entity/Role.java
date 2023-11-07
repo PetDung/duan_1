@@ -1,5 +1,6 @@
 package com.nhom_6.duan_1.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
@@ -23,5 +24,6 @@ public class Role extends BaseEntity{
     private String RoleName;
 
     @ManyToMany(mappedBy = "roles")
+    @JsonBackReference
     List<User> userList;
 }
