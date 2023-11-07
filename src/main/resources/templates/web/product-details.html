@@ -91,21 +91,12 @@
                             <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
                                 cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
                                 with placket.</p>
-                            <div class="product__details__option">
+                            <div class="product__details__option" th:data-id = "${product.id}">
                                 <span>Size:</span>
                                 <div class="product__details__option__size">
-                                    <label class="sizeLabel" th:each="item : ${product.productDetails}"  th:for="${item.size.nameSize}" th:inline="text">
-                                        [[${item.size.nameSize}]]
-                                        <input type="radio" th:id="${item.size.nameSize}">
-                                    </label>
                                 </div>
-
+                                <span>Color:</span>
                                 <div class="product__details__option__color">
-                                    <span>Color:</span>
-                                    <label th:each="item : ${product.productDetails}"  th:for="${item.color.colorName}" th:inline="text">
-                                        [[${item.color.colorName}]]
-                                        <input oninput="console.log(1)" type="radio" th:id="${item.color.colorName}">
-                                    </label>
                                 </div>
                             </div>
                             <div class="product__details__cart__option">
@@ -281,6 +272,17 @@
     </section>
     <!-- Related Section End -->
     <script src="/jscustom/handllerSize.js"></script>
+    <style>
+        .colorLable{
+            width: 40px !important;
+            height: 40px !important;
+            border: black solid 2px;
+            border-radius: 0% !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </main>
 
 <!-- Footer Section Begin -->

@@ -55,10 +55,6 @@ public class User extends BaseEntity {
     @JsonManagedReference
     private List<VoucherUserBill> voucherUsers;
 
-    @OneToMany(mappedBy = "user")
-    @JsonManagedReference
-    private List<UserAddressBill> userAddressBills;
-
     @ManyToOne
     @JsonBackReference
     private ShiftAssignment shiftAssignment;
