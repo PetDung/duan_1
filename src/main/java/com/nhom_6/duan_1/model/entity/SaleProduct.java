@@ -22,7 +22,7 @@ public class SaleProduct extends BaseEntity {
     @Column
     private String status;
     @Column
-    private Date createAt;
+    private Date startAt;
     @Column
     private Date endAt;
 

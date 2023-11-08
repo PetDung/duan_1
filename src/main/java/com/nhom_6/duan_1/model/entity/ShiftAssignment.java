@@ -19,7 +19,7 @@ import java.util.List;
 public class ShiftAssignment extends BaseEntity {
 
     @Column
-    private Date createAt;
+    private Date startAt;
     @Column
     private Date endAt;
     @Column

@@ -19,7 +19,7 @@ public class Voucher extends BaseEntity{
     @Column
     private double saleOf;
     @Column
-    private Date createAt;
+    private Date startAt;
     @Column
     private Date endAt;
     @Column
