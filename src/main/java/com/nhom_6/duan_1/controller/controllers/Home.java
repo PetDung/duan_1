@@ -13,4 +13,15 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class Home {
+
+    @Autowired
+    ProductService productService;
+    @GetMapping("")
+    public String index(Model model) {
+
+        model.addAttribute("productsList",productService.getProductActive());
+        model.addAttribute("page","home");
+        return "/layout/index";
+    }
 }
+

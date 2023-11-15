@@ -7,6 +7,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ProductRepository{
+public interface ProductRepository extends JpaRepository<Product, Long>{
+
+    List<Product> findAllByStatusTrue();
 
 }

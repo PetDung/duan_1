@@ -122,9 +122,9 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6 th:text="${item.tenSanPham}"></h6>
+                            <h6 th:text="${item.nameProduct}"></h6>
                             <a th:href="@{'/product/product-details?id=' + ${item.id}}" class="add-cart">Xem Sản Phẩm</a>
-                            <h5 th:text="${item.giaSanPham}"></h5>
+                            <h5 class="price" th:text="${item.productPrice}"></h5>
                         </div>
                     </div>
                 </div>
@@ -143,6 +143,18 @@
                 let span = item.querySelector(".label");
                 span.style.display = "inline"
             }
+        })
+
+        let prices = document.querySelectorAll(".price");
+        prices.forEach(item=>{
+            let price = item.innerText;``
+            const formatter = new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            });
+
+            const formattedNumber = formatter.format(price);
+            item.innerText = formattedNumber;
         })
     </script>
     <!-- Product Section End -->

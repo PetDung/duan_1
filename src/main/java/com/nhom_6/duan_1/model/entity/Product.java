@@ -50,7 +50,7 @@ public class Product extends BaseEntity {
     @JoinColumn(name = "thickness_id")
     private Thickness thickness;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name ="sale_id")
     private SaleProduct saleProduct;
 

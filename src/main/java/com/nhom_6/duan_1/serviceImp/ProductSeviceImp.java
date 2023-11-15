@@ -12,4 +12,10 @@ import java.util.List;
 
 @Service
 public class ProductSeviceImp implements ProductService {
+    @Autowired
+    ProductRepository productRepository;
+    @Override
+    public List<Product> getProductActive() {
+        return productRepository.findAllByStatusTrue();
+    }
 }

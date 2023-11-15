@@ -6,4 +6,6 @@ import com.nhom_6.duan_1.model.entity.ProductDetail;
 import java.util.List;
 
 public interface ProductService {
+
+    List<Product> getProductActive();
 }
