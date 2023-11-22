@@ -7,6 +7,10 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ProductDetailResponsitory  {
+public interface ProductDetailResponsitory extends JpaRepository<ProductDetail,Long> {
+    @Query("SELECT pd FROM ProductDetail pd WHERE pd.size.id = :sizeId")
+    public List<ProductDetail> getBySizeId(@Param("sizeId") Long sizeId);
 
+    @Query("SELECT pd FROM ProductDetail pd WHERE pd.color.id = :idColor")
+    public List<ProductDetail> getByIdColor(@Param("idColor") Long idColor);
 }
