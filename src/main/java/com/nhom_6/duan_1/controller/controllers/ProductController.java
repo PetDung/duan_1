@@ -12,4 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
+
+    @GetMapping
+    public String product(Model model) {
+        model.addAttribute("page", "shop");
+        return "layout/index";
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface SizeResponsitory{
-
+public interface SizeResponsitory extends JpaRepository<Size,Long>{
+    @Query("SELECT s FROM Size s WHERE s.nameSize =:name")
+    public Size getByName(String name);
 }
